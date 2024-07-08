@@ -32,7 +32,13 @@ dependencies {
 
 	// jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'mysql:mysql-connector-java:8.0.28'
+//	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	// mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+
+	// mysql
+	runtimeOnly 'mysql:mysql-connector-java:8.0.33'  // 최신 버전으로 업데이트
 }
 
 tasks.named('test') {

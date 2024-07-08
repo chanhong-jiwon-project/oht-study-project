@@ -1,12 +1,15 @@
-package oht.club.controller.board.notification.dto;
+package oht.club.domain.notification.dto;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
-
-@Data
+@Getter
+@Setter
 public class NotificationListRequest {
+
+    private Long id;
 
     private String title;
 
