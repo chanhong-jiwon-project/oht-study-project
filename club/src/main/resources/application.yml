@@ -1,14 +1,16 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/study_db
+    username: root
+    password: qwer123
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: true
+    show-sql: true
     hibernate:
       ddl-auto: create
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+  mybatis:
+    mapper-locations: classpath:mapper/**/*.xml
+  thymeleaf:
+    cache: false

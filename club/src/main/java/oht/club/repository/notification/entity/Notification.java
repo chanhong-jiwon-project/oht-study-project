@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Builder
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Table(name = "NOTIFICATIONS")
