@@ -14,3 +14,6 @@ spring:
     mapper-locations: classpath:mapper/**/*.xml
   thymeleaf:
     cache: false
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: html5

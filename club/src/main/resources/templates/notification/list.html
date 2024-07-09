@@ -1,30 +1,39 @@
-<!-- list.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Page</title>
-    <link rel="stylesheet" href="/css/common.css">
 </head>
+
 <body>
-<div class="container">
+<div class="container" layout:fragment="content">
     <h1>Item List</h1>
-    <button onclick="location.href='add.html'">Add New Item</button>
+    <button onclick="location.href='add.html'" th:onclick="|location.href='@{/notification/edit}'|">Add New Item</button>
     <table>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th>title</th>
+            <th>content</th>
+            <th>createdAt</th>
+            <th>update</th>
+            <th>delete</th>
         </tr>
         <!-- Sample Data -->
-        <tr>
-            <td>1</td>
-            <td>Item 1</td>
-            <td>This is a description for item 1</td>
+
+        <tr th:each="item : ${notificationList}">
+            <td><a href="" th:href="@{/notification/{itemId}(itemId=${item.id})}" th:text="${item.id}"></a></td>
+            <td><a href="" th:href="@{/notification/{itemId}(itemId=${item.id})}" th:text="${item.title}"></a></td>
+            <td th:text="${item.content}"></td>
+            <td th:text="${item.createdAt}"></td>
             <td>
-                <button onclick="location.href='detail.html'">View</button>
+                <button onclick="location.href=''" th:onclick="|location.href='@{/notification/edit/{itemId}(itemId=${item.id})}'|">Update</button>
+            </td>
+            <td>
+                <form th:action="@{/notification/delete/{id}(id=${item.id})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
             </td>
         </tr>
     </table>

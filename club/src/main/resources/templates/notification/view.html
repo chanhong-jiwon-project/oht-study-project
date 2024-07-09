@@ -1,18 +1,19 @@
-<!-- detail.html -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Detail</title>
-    <link rel="stylesheet" href="/css/common.css">
 </head>
+
 <body>
-<div class="container">
-    <h1>Item Detail</h1>
-    <h2>Item Name: Item 1</h2>
-    <p><strong>Description:</strong> This is a description for item 1</p>
-    <button onclick="location.href='list.html'">Back to List</button>
+<div class="container" layout:fragment="content">
+    <h1 th:text="${notification.title}"></h1>
+    <h2 th:text="'Item Name : ' + ${notification.title}"></h2>
+    <p><strong>Description:</strong> <span th:text="${notification.content}">This is a description for item 1</span></p>
+    <button onclick="location.href='/notification'">Back to List</button>
 </div>
 </body>
 </html>

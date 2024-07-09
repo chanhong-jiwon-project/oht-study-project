@@ -2,17 +2,20 @@ package oht.club.service.notification;
 
 
 
-import oht.club.domain.notification.dto.NotificationListRequest;
-import org.springframework.ui.Model;
+import oht.club.dto.notification.NotificationDTO;
+import oht.club.repository.notification.entity.Notification;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface NotificationService {
 
-    String join(NotificationListRequest notificationListRequest);
+    String join(NotificationDTO notificationDTO);
 
-    String update(Long notificationId, NotificationListRequest notificationListRequest);
+    String update(Long notificationId, NotificationDTO notificationDTO);
 
+    List<NotificationDTO> getList();
 
+    NotificationDTO getDetail(Long notificationId);
+
+    boolean delete(Long notificationId);
 }
