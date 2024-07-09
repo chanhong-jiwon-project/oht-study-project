@@ -66,23 +66,24 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public List<NotificationDTO> getList() {
+    public List<Notification> getList() {
 
         List<Notification> notificationList = notificationRepository.findAll();
 
-        return notificationList.stream()
-                .map(notification -> new NotificationDTO(notification.getId(), notification.getTitle(), notification.getContent(), notification.getCreatedAt()))
-                .collect(Collectors.toList());
+//        return notificationList.stream()
+//                .map(notification -> new NotificationDTO(notification.getId(), notification.getTitle(), notification.getContent(), notification.getCreatedAt()))
+//                .collect(Collectors.toList());
+
+        return notificationList;
 
     }
 
     @Override
-    public NotificationDTO getDetail(Long notificationId) {
+    public Notification getDetail(Long notificationId) {
 
         Optional<Notification> findNotification = notificationRepository.findById(notificationId);
 
-        return findNotification.map(notification -> new NotificationDTO(notification.getId(), notification.getTitle(), notification.getContent(), notification.getCreatedAt())).orElse(null);
-
+        return findNotification.map(notification -> new Notification(notification.getId(), notification.getTitle(), notification.getContent(), notification.getCreatedAt())).orElse(null);
     }
 
     @Override

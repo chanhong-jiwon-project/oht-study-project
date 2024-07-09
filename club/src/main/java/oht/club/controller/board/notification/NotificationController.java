@@ -27,7 +27,7 @@ public class NotificationController {
     // 공지사항 리스트
     @GetMapping
     public String notification(Model model) {
-        List<NotificationDTO> notificationList = notificationService.getList();
+        List<Notification> notificationList = notificationService.getList();
         model.addAttribute("notificationList", notificationList);
         return "notification/list";
     }
@@ -35,7 +35,7 @@ public class NotificationController {
     // 공지사항 상세
     @GetMapping("/{notificationId}")
     public String notificationView(@PathVariable("notificationId") Long notificationId, Model model) {
-        NotificationDTO notification = notificationService.getDetail(notificationId);
+        Notification notification = notificationService.getDetail(notificationId);
         model.addAttribute("notification", notification);
         return "notification/view";
     }
@@ -73,7 +73,7 @@ public class NotificationController {
     @GetMapping("/edit/{notificationId}")
     public String notificationUpdateView(Model model, @PathVariable("notificationId") Long notificationId) {
 
-        NotificationDTO notification = notificationService.getDetail(notificationId);
+        Notification notification = notificationService.getDetail(notificationId);
 
         model.addAttribute("notification", notification);
 

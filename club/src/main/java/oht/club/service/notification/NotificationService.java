@@ -13,9 +13,9 @@ public interface NotificationService {
 
     String update(Long notificationId, NotificationDTO notificationDTO);
 
-    List<NotificationDTO> getList();
+    List<Notification> getList();
 
-    NotificationDTO getDetail(Long notificationId);
+    Notification getDetail(Long notificationId);
 
     boolean delete(Long notificationId);
 }
