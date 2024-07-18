@@ -22,7 +22,6 @@ import java.util.Optional;
 public class NotificationController {
 
     private final NotificationService notificationService;
-    private final NotificationRepository notificationRepository;
 
     // 공지사항 리스트
     @GetMapping
